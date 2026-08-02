@@ -61,9 +61,13 @@ def register_routes(app):
 
         return jsonify({"id": user.id, "username": user.username}), 200
 
+    @app.route("/me")
+    def me():
+        return check_session()
+
     @app.before_request
     def require_auth():
-        public_routes = {"/signup", "/login", "/logout", "/check_session"}
+        public_routes = {"/signup", "/login", "/logout", "/check_session", "/me"}
         if request.path in public_routes:
             return None
 

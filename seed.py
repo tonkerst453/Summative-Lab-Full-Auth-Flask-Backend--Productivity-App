@@ -1,5 +1,5 @@
-from app import create_app, db
-from app import User, Note
+from productivity_app import create_app, db
+from productivity_app.models import User, Note
 
 app = create_app()
 
